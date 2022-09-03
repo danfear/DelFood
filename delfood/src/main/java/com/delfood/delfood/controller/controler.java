@@ -1,4 +1,4 @@
-package com.delfood.delfood.controllers;
+package com.delfood.delfood.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
