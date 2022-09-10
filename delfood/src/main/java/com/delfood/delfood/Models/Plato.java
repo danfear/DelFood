@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Platos")
-public class Platos {
+public class Plato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
@@ -48,7 +48,7 @@ public class Platos {
         this.descripcion=description;
     }
 
-    public plato(String name,double precio, String description){
+    public Plato(String name,double precio, String description){
         this.name=name;
         this.precio=precio;
         this.descripcion=description;
