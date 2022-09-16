@@ -47,7 +47,9 @@ public class Plato {
     public void setdescription(String description){
         this.descripcion=description;
     }
-
+    public Plato(){
+        
+    }
     public Plato(String name,double precio, String description){
         this.name=name;
         this.precio=precio;
