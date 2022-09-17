@@ -15,4 +15,8 @@ public class PlatoService {
   public List<Plato> buscartodos(){
     return platorepository.findAll();
   } 
+  public Plato getplatobyId(Long Id){
+    Plato plato=platorepository.findById(Id).orElseThrow(() -> new RuntimeException("No existe el plato"));
+    return plato;
+  }
 }

@@ -19,6 +19,8 @@ public class Plato {
     private Double precio;
     @Column
     private String descripcion;
+    @Column
+    private String image;
 
     public Long getId(){
         return Id;
@@ -35,7 +37,9 @@ public class Plato {
     public String getDescription(){
         return descripcion;
     }
-
+    public String getImage(){
+        return image;
+    }
     public void setName(String name){
         this.name=name;
     }
@@ -47,12 +51,16 @@ public class Plato {
     public void setdescription(String description){
         this.descripcion=description;
     }
+    public void setimage(String image){
+        this.image=image;
+    }
     public Plato(){
         
     }
-    public Plato(String name,double precio, String description){
+    public Plato(String name,double precio, String description,String Image){
         this.name=name;
         this.precio=precio;
         this.descripcion=description;
+        this.image=Image;
     }
 }

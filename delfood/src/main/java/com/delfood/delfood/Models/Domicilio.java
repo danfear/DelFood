@@ -30,10 +30,41 @@ public class Domicilio {
     @ManyToOne
     public Plato plato;
 
-    public Domicilio(String Direccion,int tiempo,double precio,int cantidad){
+    public Long getId(){
+        return Id;
+    }
+    public int getTiempo(){
+        return tiempo;
+    }
+    public void setTiempo(int tiempo){
+        this.tiempo=tiempo;
+    }
+    public double getPrecio(){
+        return precio;
+    }
+    public void setPrecio(double precio){
+        this.precio=precio;
+    }
+    public int getCantidad(){
+        return cantidad;
+    }
+    public void setCantidad(int cantidad){
+        this.cantidad=cantidad;
+    }
+    public Plato getPlato(){
+        return plato;
+    }
+    public void setPlato(Plato plato){
+        this.plato=plato;
+    }
+    public Domicilio(){
+
+    }
+    public Domicilio(String Direccion,int tiempo,double precio,int cantidad,Plato plato){
         this.direccion=Direccion;
         this.tiempo=tiempo;
         this.precio=precio;
         this.cantidad=cantidad;
+        this.plato=plato;
     }
 }
