@@ -27,6 +27,12 @@ public class Domicilio {
     @Column
     public int cantidad;
 
+    @Column
+    public String nombre;
+
+    @Column
+    public String Telefono;
+
     @ManyToOne
     public Plato plato;
 
@@ -56,6 +62,24 @@ public class Domicilio {
     }
     public void setPlato(Plato plato){
         this.plato=plato;
+    }
+    public String getNombre(){
+        return nombre;
+    }
+    public String getTelefono(){
+        return Telefono;
+    }
+    public String getDireccion(){
+        return direccion;
+    }
+    public void setNombre(String nombre){
+        this.nombre=nombre;
+    }
+    public void setTelefono(String Telefono){
+        this.Telefono=Telefono;
+    }
+    public void setDireccion(String direccion){
+        this.direccion=direccion;
     }
     public Domicilio(){
 

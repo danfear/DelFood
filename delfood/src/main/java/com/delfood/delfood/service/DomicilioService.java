@@ -23,4 +23,15 @@ public class DomicilioService {
         domiciliorepository.save(domicilio);
         return domicilio;
     }
+
+    public Domicilio guardarDomicilio(Long DomicilioId,Domicilio domiclio){
+        Domicilio domicilioex=domiciliorepository.findById(DomicilioId).orElseThrow(() -> new RuntimeException("Compte Introuvable"));
+        domicilioex.setNombre(domiclio.getNombre());
+        domicilioex.setTelefono(domiclio.getTelefono());
+        domicilioex.setDireccion(domiclio.getDireccion());
+        domicilioex.setTiempo(15);
+        System.out.println(domicilioex.getTiempo());
+        domiciliorepository.save(domicilioex);
+        return domicilioex;
+    }
 }

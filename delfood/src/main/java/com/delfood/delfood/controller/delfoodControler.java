@@ -37,4 +37,10 @@ public class delfoodControler {
 		model.addAttribute("Domicilio",domicilio2);
 		return "pagina2";
 	}
+	@RequestMapping("/confirmacion/{Id}")
+	public String Confirmacion(@PathVariable Long Id,Domicilio domicilio,Model model){
+		Domicilio domilioguar=domicilioService.guardarDomicilio(Id, domicilio);
+		model.addAttribute("Domicilio",domilioguar);
+		return "pagina3";
+	}
 }
