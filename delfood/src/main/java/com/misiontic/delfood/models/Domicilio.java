@@ -1,4 +1,4 @@
-package com.misiontic.delfood.models;
+package com.delfood.delfood.Models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,6 +26,12 @@ public class Domicilio {
 
     @Column
     public int cantidad;
+
+    @Column
+    public String nombre;
+
+    @Column
+    public String Telefono;
 
     @ManyToOne
     public Plato plato;
@@ -57,11 +63,28 @@ public class Domicilio {
     public void setPlato(Plato plato){
         this.plato=plato;
     }
+    public String getNombre(){
+        return nombre;
+    }
+    public String getTelefono(){
+        return Telefono;
+    }
+    public String getDireccion(){
+        return direccion;
+    }
+    public void setNombre(String nombre){
+        this.nombre=nombre;
+    }
+    public void setTelefono(String Telefono){
+        this.Telefono=Telefono;
+    }
+    public void setDireccion(String direccion){
+        this.direccion=direccion;
+    }
     public Domicilio(){
 
     }
-
-    public Domicilio(String Direccion,int tiempo,double precio,int cantidad, Plato plato){
+    public Domicilio(String Direccion,int tiempo,double precio,int cantidad,Plato plato){
         this.direccion=Direccion;
         this.tiempo=tiempo;
         this.precio=precio;
