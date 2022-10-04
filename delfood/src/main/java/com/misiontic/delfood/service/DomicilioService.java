@@ -1,11 +1,11 @@
-package com.misiontic.delfood.service;
+package com.delfood.delfood.service;
 
 import org.springframework.stereotype.Service;
 
-import com.misiontic.delfood.models.Domicilio;
-import com.misiontic.delfood.models.Plato;
-import com.misiontic.delfood.repository.DomicilioRepository;
-import com.misiontic.delfood.repository.PlatoRepository;
+import com.delfood.delfood.Models.Domicilio;
+import com.delfood.delfood.Models.Plato;
+import com.delfood.delfood.repository.DomicilioRepository;
+import com.delfood.delfood.repository.PlatoRepository;
 
 @Service
 public class DomicilioService {
@@ -20,7 +20,21 @@ public class DomicilioService {
     public Domicilio crearDomicilio(Long platoId,Domicilio domicilio){
         Plato plato=platoRepository.findById(platoId).orElseThrow(() -> new RuntimeException("Compte Introuvable"));
         domicilio.setPlato(plato);
+        domicilio.setPrecio(plato.getPrecio()*domicilio.getCantidad()); //
+        domicilio.setTiempo(plato.getTiempo()+10); //
         domiciliorepository.save(domicilio);
         return domicilio;
     }
+
+    public Domicilio guardarDomicilio(Long DomicilioId,Domicilio domiclio){
+        Domicilio domicilioex=domiciliorepository.findById(DomicilioId).orElseThrow(() -> new RuntimeException("Compte Introuvable"));
+        domicilioex.setNombre(domiclio.getNombre());
+        domicilioex.setTelefono(domiclio.getTelefono());
+        domicilioex.setDireccion(domiclio.getDireccion());
+        //domicilioex.setTiempo(domiclio.getTiempo());
+        System.out.println(domicilioex.getTiempo());
+        domiciliorepository.save(domicilioex);
+        return domicilioex;
+    }
+
 }
