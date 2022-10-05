@@ -1,7 +1,6 @@
 package com.delfood.delfood.service;
 
 import org.springframework.stereotype.Service;
-
 import com.delfood.delfood.Models.Domicilio;
 import com.delfood.delfood.Models.Plato;
 import com.delfood.delfood.repository.DomicilioRepository;
@@ -35,6 +34,10 @@ public class DomicilioService {
         System.out.println(domicilioex.getTiempo());
         domiciliorepository.save(domicilioex);
         return domicilioex;
+    }
+
+    public void deleteDomicilioById(Long DomicilioId){
+        domiciliorepository.deleteById(DomicilioId);
     }
 
 }

@@ -22,7 +22,7 @@ public class Domicilio {
     public int tiempo;
 
     @Column
-    public double precio;
+    public int precio;
 
     @Column
     public int cantidad;
@@ -45,10 +45,10 @@ public class Domicilio {
     public void setTiempo(int tiempo){
         this.tiempo=tiempo;
     }
-    public double getPrecio(){
+    public int getPrecio(){
         return precio;
     }
-    public void setPrecio(double precio){
+    public void setPrecio(int precio){
         this.precio=precio;
     }
     public int getCantidad(){
@@ -84,7 +84,7 @@ public class Domicilio {
     public Domicilio(){
 
     }
-    public Domicilio(String Direccion,int tiempo,double precio,int cantidad,Plato plato){
+    public Domicilio(String Direccion,int tiempo,int precio,int cantidad,Plato plato){
         this.direccion=Direccion;
         this.tiempo=tiempo;
         this.precio=precio;

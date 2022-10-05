@@ -1,17 +1,14 @@
 package com.delfood.delfood.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-//import org.thymeleaf.engine.AttributeName;
 import com.delfood.delfood.Models.Plato;
 import com.delfood.delfood.Models.Domicilio;
-//import com.delfood.delfood.repository.DomicilioRepository;
 import com.delfood.delfood.service.DomicilioService;
 import com.delfood.delfood.service.PlatoService;
 import java.util.List;
-//import org.springframework.ui.Model;
 
 @Controller
 public class delfoodControler {
@@ -24,7 +21,7 @@ public class delfoodControler {
 		this.domicilioService=domicilioservice;
 	}
 	
-	@RequestMapping("/platos")
+	@RequestMapping("/")
 	public String buscartodo(Model model){
 		List<Plato> platos = platoService.buscartodos();
 		Domicilio domicilio = new Domicilio();
@@ -42,7 +39,15 @@ public class delfoodControler {
 	public String Confirmacion(@PathVariable Long Id,Domicilio domicilio,Model model){
 		Domicilio domilioguar=domicilioService.guardarDomicilio(Id, domicilio);
 		model.addAttribute("Domicilio",domilioguar);
+		model.addAttribute("tiempo", domilioguar.getTiempo());
+		model.addAttribute("precio", domilioguar.getPrecio());
 		return "pagina3";
+	}
+
+	@GetMapping("/confirmacion/{Id}")
+	public String deleteDomicilio(@PathVariable Long Id){
+		domicilioService.deleteDomicilioById(Id);
+		return "redirect:/";
 	}
 
 }
